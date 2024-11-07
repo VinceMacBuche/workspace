@@ -4,6 +4,11 @@ mod parser;
 use std::io;
 
 fn main() {
+
+  // Get two user input, first as parser string, second the string to parse
+  // if one > 20 makes and error
+  // Checks them with a parser
+  // Check if the string match our regex
   let mut parser_string = String::new();
   let mut matched_string = String::new();
   println!("Enter parser string: ");
@@ -28,7 +33,12 @@ fn main() {
               Err(e) => println!("{}",e),
               Ok((rest_match,s)) => {
                 if rest_match.is_empty() {
-                  println!("{:?}",parser::match_string(&s,&p))
+                  // Display the result
+                  if parser::match_string(&s,&p) {
+                    println!("It matches !! \\o/")
+                  } else { 
+                    println!("It does not match !! :(")
+                  }
                 } else {
                   println!("invalid string {}", matched_string);
                 }
