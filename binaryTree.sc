@@ -1,6 +1,9 @@
 
 import zio.json.*
 
+
+// Simple binary tree representation, serialized using zio json
+// left and right nodes a represented by options
 case class BinaryTreeNode(value : Int, left : Option[BinaryTreeNode], right : Option[BinaryTreeNode] )
 
 object NodeSerializer {
